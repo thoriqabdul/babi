@@ -20,6 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/create', 'HomeController@create')->name('create');
+Route::post('/store', 'HomeController@store')->name('store');
+Route::get('/edit/{id}', 'HomeController@edit')->name('edit');
+Route::put('/update/{id}', 'HomeController@update')->name('update');
+Route::delete('/destroy/{id}', 'HomeController@destroy')->name('destroy');
 
 route::group(['prefix' => 'admin','middleware'=>['auth','itsAdmin']], function(){
     Route::get('/', 'AdminController@index')->name('admin.index');
